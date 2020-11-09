@@ -74,9 +74,40 @@ namespace BlogsConsole
             logger.Info("Program ended");
             }else if (start == "3")
             {
+                string choice = null;
+                Console.WriteLine("Select which blog you want to pont on:");
+                var db = new BloggingContext();
+                var query = db.Blogs.OrderBy(b => b.Name);
+                var x = 0;
+                foreach (var item in query)
+                {
+                    x++;
+                    Console.WriteLine(x + ". " + item.Name);
+                
+                }
+
+                choice = Console.ReadLine();
+
+
+                
+                
 
             }else if (start == "4")
             {
+                string choice = null;
+                Console.WriteLine("Select the blog that you want to see the posts from:");
+                var db = new BloggingContext();
+                var query = db.Blogs.OrderBy(b => b.Name);
+                var x = 0;
+                foreach (var item in query)
+                {
+                    x++;
+                    Console.WriteLine(x + ". " + item.Name);
+                
+                }
+
+                choice = Console.ReadLine();
+
 
             }
 
