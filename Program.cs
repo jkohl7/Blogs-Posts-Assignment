@@ -13,8 +13,24 @@ namespace BlogsConsole
         {
             logger.Info("Program started");
 
+            string start = null;
+                do{
+            Console.WriteLine("1. Display blogs");
+            Console.WriteLine("2. Add blog");
+            Console.WriteLine("3. Create post");
+            Console.WriteLine("4. Display posts");
+            Console.WriteLine("Press enter to quit");
+            start = Console.ReadLine();
+
+            if (start == "1")
+            {
+
+            }else if (start == "2")
+            {
+
              try
             {
+                
 
                 // Create and save a new Blog
                 Console.Write("Enter a name for a new Blog: ");
@@ -40,6 +56,15 @@ namespace BlogsConsole
                 logger.Error(ex.Message);
             }
             logger.Info("Program ended");
+            }else if (start == "3")
+            {
+
+            }else if (start == "4")
+            {
+
+            }
+
+            }while (start == "1" || start == "2" || start == "3" || start == "4");
         }
     }
 }
