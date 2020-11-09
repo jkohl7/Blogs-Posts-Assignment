@@ -24,7 +24,23 @@ namespace BlogsConsole
 
             if (start == "1")
             {
+                try
+            {
+                
+                var db = new BloggingContext();
+                // Display all Blogs from the database
+                var query = db.Blogs.OrderBy(b => b.Name);
 
+                Console.WriteLine("All blogs in the database:");
+                foreach (var item in query)
+                {
+                    Console.WriteLine(item.Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
             }else if (start == "2")
             {
 
