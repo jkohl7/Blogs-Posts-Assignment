@@ -88,26 +88,45 @@ namespace BlogsConsole
 
                 choice = Console.ReadLine();
 
+                Console.Write("Enter a name for a new Post: ");
+                var title = Console.ReadLine();
+                Console.Write("Enter the content for the post: ");
+                var content = Console.ReadLine();
+
+                var post = new Post { Title = title, Content = content };
+
+                var y = new BloggingContext();
+                y.AddPost(post);
+                logger.Info("Post added - {title}", title);
+
+
+                
+
+                
+
 
                 
                 
 
             }else if (start == "4")
             {
-                string choice = null;
-                Console.WriteLine("Select the blog that you want to see the posts from:");
+                try
+            {
+                
                 var db = new BloggingContext();
-                var query = db.Blogs.OrderBy(b => b.Name);
-                var x = 0;
+                // Display all posts 
+                var query = db.Posts.OrderBy(b => b.Title);
+
+                Console.WriteLine("All created posts:");
                 foreach (var item in query)
                 {
-                    x++;
-                    Console.WriteLine(x + ". " + item.Name);
-                
+                    Console.WriteLine(item.Title);
                 }
-
-                choice = Console.ReadLine();
-
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.Message);
+            }
 
             }
 
